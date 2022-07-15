@@ -1,4 +1,4 @@
-name: Rafay EaaS
+name: Rafay EaaS Provision
 on: [push]
 jobs:
   build:
@@ -7,4 +7,4 @@ jobs:
       - name: Check out repo        
         uses: actions/checkout@v3
       - run: |
-          ./EaaS.ps1 '${{ secrets.rafaysecret }}'
+          ./provision.ps1 '${{ secrets.rafaysecret }}'
