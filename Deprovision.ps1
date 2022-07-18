@@ -44,19 +44,30 @@ write-host "$time - Deleting Cluster"
 
 
 #wait until cluster is deleted
+$count = 0
 while(1)
 {
-[string] $clusterinfo = .\rctl get cluster $clustername -o yaml -p $ProjectName
-$status = (($clusterinfo -split "status:")[1] -split " ")[1]
+    if($count -eq 35)
+    {
+        $time = get-date -format hh:mm:ss
+        write-host "$time - cluster did not delete in alloted time.  Exiting."
+        exit
+    }
+    else
+    {
+        [string] $clusterinfo = .\rctl get cluster $clustername -o yaml -p $ProjectName
+        $status = (($clusterinfo -split "status:")[1] -split " ")[1]
 
-if($clusterinfo -eq '')
-{
-    break
-}
+        if($clusterinfo -eq '')
+        {
+            break
+        }
 
-sleep 60
-$time = get-date -format hh:mm:ss
-write-host "$time - Waiting for cluster to delete. (Current Status: $status)" 
+        sleep 60
+        $time = get-date -format hh:mm:ss
+        write-host "$time - Waiting for cluster to delete. (Current Status: $status)" 
+        $count++
+    }
 }
 
 #delete blueprint

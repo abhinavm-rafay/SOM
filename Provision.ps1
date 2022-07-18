@@ -102,20 +102,31 @@ write-host "$time - Provisioning cluster"
 .\rctl apply -f .\cluster\cluster_spec_custom.yaml -p $projectname 
 
 #wait until cluster is up and running
+$count = 0
 while(1)
 {
-[string] $clusterinfo = .\rctl get cluster $clustername -o yaml -p $ProjectName
-$status = (($clusterinfo -split "status:")[1] -split " ")[1]
-$Health = (($clusterinfo -split "health:")[1] -split " ")[1]
+    if($count -eq 35)
+    {
+        $time = get-date -format hh:mm:ss
+        write-host "$time - cluster did not provision in alloted time.  Exiting."
+        exit
+    }
+    else
+    {
+        [string] $clusterinfo = .\rctl get cluster $clustername -o yaml -p $ProjectName
+        $status = (($clusterinfo -split "status:")[1] -split " ")[1]
+        $Health = (($clusterinfo -split "health:")[1] -split " ")[1]
 
-if($status -eq 'READY' -and $health -eq '1')
-{
-    break
-}
+        if($status -eq 'READY' -and $health -eq '1')
+        {
+            break
+        }
 
-sleep 60
-$time = get-date -format hh:mm:ss
-write-host "$time - Waiting for cluster to provision. (Current Status: $status - Health: $health)" 
+        sleep 60
+        $time = get-date -format hh:mm:ss
+        write-host "$time - Waiting for cluster to provision. (Current Status: $status - Health: $health)" 
+        $count++
+    }
 }
 
 #create repository
