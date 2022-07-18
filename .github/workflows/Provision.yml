@@ -1,5 +1,8 @@
 name: Rafay EaaS Provision
-on: [push]
+on:
+  push:
+    paths:
+      - 'Provision.ps1'
 jobs:
   build:
     runs-on: windows-2019
