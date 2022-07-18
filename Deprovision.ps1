@@ -1,26 +1,95 @@
-﻿#delete cluster
-rctl delete cluster $clustername -p $projectname -y
+﻿################################################
+#   Populate Variables
+################################################
+
+#Step 1: Populate project and cluster information
+
+$projectname = ''            # The name of the Rafay project that will be deleted. Example: devproject
+$clustername = ''            # The name of the EKS cluster that will be deleted. Example: cluster1
+
+
+#Step 2: Define users to be deleted in the Rafay Org
+
+$useremail1 = ''             # Email address of the user. Example: bob@example.com
+$useremail2 = ''             # Email address of the user. Example: bob@example.com
+
+
+################################################
+#DO NOT EDIT BELOW THIS LINE
+################################################
+
+$cliconfig=$args[0]
+
+#groups
+$groupname1 = 'Project Admins'
+$groupname2 = 'Infrastructure Admins'
+
+#download and expand rctl
+$time = get-date -format hh:mm:ss
+write-host "$time - Downloading RCTL" 
+Invoke-WebRequest -Uri "https://rafay-prod-cli.s3-us-west-2.amazonaws.com/publish/rctl-windows-amd64.zip" -OutFile ".\rctl-windows-amd64.zip"
+expand-Archive -LiteralPath ".\rctl-windows-amd64.zip" -DestinationPath ".\"
+
+#create cliconfig from secret
+$cliconfig | Out-File .\cliconfig.json
+
+#Init rctl
+.\rctl config init '.\cliconfig.json'
+
+
+#delete cluster
+$time = get-date -format hh:mm:ss
+write-host "$time - Deleting Cluster" 
+.\rctl delete cluster $clustername -p $projectname -y
+
+
+#wait until cluster is deleted
+while(1)
+{
+[string] $clusterinfo = .\rctl get cluster $clustername -o yaml -p $ProjectName
+$status = (($clusterinfo -split "status:")[1] -split " ")[1]
+
+if($clusterinfo -eq '')
+{
+    break
+}
+
+sleep 60
+$time = get-date -format hh:mm:ss
+write-host "$time - Waiting for cluster to delete. (Current Status: $status)" 
+}
 
 #delete blueprint
-rctl delete blueprint cloudwatch-blueprint -p $projectname  
+$time = get-date -format hh:mm:ss
+write-host "$time - Delete Blueprint" 
+.\rctl delete blueprint cloudwatch-blueprint -p $projectname  
 
 #delete users
-rctl delete user $useremail1     
-rctl delete user $useremail2
-
+$time = get-date -format hh:mm:ss
+write-host "$time - Delete Users" 
+.\rctl delete user $useremail1     
+.\rctl delete user $useremail2
 
 #delete groups
-rctl delete group $groupname1 
-rctl delete group $groupname2 
+$time = get-date -format hh:mm:ss
+write-host "$time - Delete Groups" 
+.\rctl delete group $groupname1 
+.\rctl delete group $groupname2 
 
 #delete addon
-rctl delete addon -p $projectname cloudwatch-addon
+$time = get-date -format hh:mm:ss
+write-host "$time - Delete Addon" 
+.\rctl delete addon -p $projectname cloudwatch-addon
 
 #delete namespace
-rctl delete namespace -p $projectname amazon-cloudwatch
+$time = get-date -format hh:mm:ss
+write-host "$time - Delete Namespace" 
+.\rctl delete namespace -p $projectname amazon-cloudwatch
 
 #delete project
-rctl delete p $ProjectName
+$time = get-date -format hh:mm:ss
+write-host "$time - Delete Project" 
+.\rctl delete p $ProjectName
 
 
 

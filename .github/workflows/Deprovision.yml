@@ -1,0 +1,13 @@
+name: Rafay EaaS Deprovision
+on:
+  push:
+    paths:
+      - 'Deprovision.ps1'
+jobs:
+  build:
+    runs-on: windows-2019
+    steps:
+      - name: Check out repo        
+        uses: actions/checkout@v3
+      - run: |
+          ./deprovision.ps1 '${{ secrets.rafaysecret }}'
