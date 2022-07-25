@@ -11,10 +11,10 @@ $azureresourcegroup = ''     # The Azure of an existing resource group where the
 
 #step 2: Setup the Azure service: https://docs.rafay.co/clusters/aks/azure_setup/ and then populate the needed variables below.
 
-$azuretenantid = ''          # The Azure tenant ID  Example: 38d77531-9d10-484f-9c1d-3e3484cd9c34
-$azuresubscriptionid = ''    # The Azure subscription ID.  Example: a2252eb2-7a25-432b-a5ec-e18eba6f26b1
-$azureclientid = ''          # The Azure client ID.  Example: 8932bf95-f213-4acc-99c8-f8eb5048c9eb
-$azureclientsecret = ''      # The Azure client secret.  Example: 2Ndfoaoi6FibxBtIWY3sq9Ka2/O1tTQxE0eLzGAWwPQ=
+$azuretenantid = ''          # The Azure tenant ID  Example: 38d77531-9d10-484f-9c1d-3e3484cd9c35
+$azuresubscriptionid = ''    # The Azure subscription ID.  Example: a2252eb2-7a25-432b-a5ec-e18eba6f26b5
+$azureclientid = ''          # The Azure client ID.  Example: 8932bf95-f213-4acc-99c8-f8eb5048c9e5
+$azureclientsecret = ''      # The Azure client secret.  Example: 2Ndfoaoi6FibxBtIWY3sq9Ka2/O1tTQxE0eLzGAWwP5=
   
 
 #Step 3: Define users to be created in the Rafay Org
@@ -214,7 +214,7 @@ write-host "$time - Creating OPA PSP-Restricted policy"
 
 #create blueprint
 $time = get-date -format hh:mm:ss
-write-host "$time - Creating blueprint with Cloudwatch Addon and OPA PSP-Restricted policy" 
+write-host "$time - Creating blueprint with OPA PSP-Restricted policy" 
 .\rctl create blueprint -f .\aks\blueprint\blueprint_spec_custom.yaml --v3 -p $projectname     
 
 #create backup cloud credential
