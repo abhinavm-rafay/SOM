@@ -1,8 +1,8 @@
-name: Rafay EaaS Deprovision
+name: Rafay EaaS Deprovision AKS
 on:
   push:
     paths:
-      - 'Deprovision.ps1'
+      - './aks/deprovision_aks.ps1'
 jobs:
   build:
     runs-on: windows-2019
@@ -10,4 +10,4 @@ jobs:
       - name: Check out repo        
         uses: actions/checkout@v3
       - run: |
-          ./deprovision.ps1 '${{ secrets.rafaysecret }}'
+          ./aks/deprovision_aks.ps1 '${{ secrets.rafaysecret }}'
