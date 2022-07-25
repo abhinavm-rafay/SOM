@@ -222,7 +222,7 @@ write-host "$time - Creating OPA PSP-Restricted policy"
 #create blueprint
 $time = get-date -format hh:mm:ss
 write-host "$time - Creating blueprint with Cloudwatch Addon and OPA PSP-Restricted policy" 
-.\rctl create blueprint -f .\eks\blueprint\blueprint_spec_custom.yaml -p $projectname     
+.\rctl create blueprint -f .\eks\blueprint\blueprint_spec_custom.yaml --v3 -p $projectname     
 
 #create backup cloud credential
 $time = get-date -format hh:mm:ss

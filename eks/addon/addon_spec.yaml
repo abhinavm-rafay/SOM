@@ -6,7 +6,7 @@ spec:
   namespace: amazon-cloudwatch
   template:
     type: Helm3
-    valuesFile: .\addon\values_custom.yaml
+    valuesFile: .\eks\addon\values_custom.yaml
     repository_ref: cloudwatch-repo
     repo_artifact_meta:
       helm:
