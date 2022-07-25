@@ -2,7 +2,7 @@ name: Rafay EaaS Provision AKS
 on:
   push:
     paths:
-      - './aks/provision_aks.ps1'
+      - 'aks/provision_aks.ps1'
 jobs:
   build:
     runs-on: windows-2019

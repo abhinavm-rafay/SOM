@@ -2,7 +2,7 @@ name: Rafay EaaS Provision EKS
 on:
   push:
     paths:
-      - './eks/provision_eks.ps1'
+      - 'eks/provision_eks.ps1'
 jobs:
   build:
     runs-on: windows-2019
