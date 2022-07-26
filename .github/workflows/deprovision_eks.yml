@@ -1,4 +1,4 @@
-name: Rafay EaaS Deprovision EKS
+name: Rafay SOM Deprovision EKS
 on:
   push:
     paths:

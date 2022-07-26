@@ -1,4 +1,4 @@
-name: Rafay EaaS Provision AKS
+name: Rafay SOM Provision AKS
 on:
   push:
     paths:
