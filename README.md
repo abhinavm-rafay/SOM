@@ -68,3 +68,5 @@ Step 4: Run Automation
 - Click the workflow -> build to see the output of the workflow
 - You will see the GitHub Actions based “SOM” automation provision the resources one by one. 
 - Login into your Rafay Org using a web browser to see the resources being created
+
+###
