@@ -58,7 +58,7 @@ while(1)
         [string] $clusterinfo = .\rctl get cluster $clustername -o yaml -p $ProjectName
         $status = (($clusterinfo -split "status:")[1] -split " ")[1]
 
-        if($clusterinfo -eq '')
+        if($clusterinfo -eq $NULL)
         {
             break
         }
