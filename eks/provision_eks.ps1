@@ -10,8 +10,8 @@ $awsregion = ''              # The AWS region where the EKS cluster will be crea
 
 #step 2: Create AWS policy and Role.  Define an external ID below and use the external ID during the creation of the AWS role.  Once the role is created, copy the role arn for $rolearn
 
-$externalid = ''             # The external ID used to create the AWS Role. Example: 2cae-59f0-1ee2-a4ca-f99d                      
-$rolearn = ''                # The AWS Role ARN of the role created with the needed Rafay permissions. Example: arn:aws:iam::679196758854:role/tim-cc-test     
+$externalid = ''             # The external ID used to create the AWS Role. Example: 2cae-59f0-1ee2-a4ca-f977                      
+$rolearn = ''                # The AWS Role ARN of the role created with the needed Rafay permissions. Example: arn:aws:iam::679196758877:role/tim-cc-test     
 
 
 #Step 3: Define users to be created in the Rafay Org
@@ -27,7 +27,7 @@ $userinfo2 = ''              # The users information in the following format: <U
 
 $bucketname = ''             # The name of the S3 bucket defined in AWS. Example: tim-eks-gitops
 $bucketregion = ''           # The AWS region where the bucket resides. Example: us-west-2
-$awsaccountnumber = ''       # The AWS account number the bucket is associated with. Example: 679196758854
+$awsaccountnumber = ''       # The AWS account number the bucket is associated with. Example: 679196758877
 
 
 
