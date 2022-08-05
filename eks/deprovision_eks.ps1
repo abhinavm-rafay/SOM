@@ -1,16 +1,16 @@
-﻿################################################
+################################################
 #   Populate Variables
 ################################################
 
 #Step 1: Populate project and cluster information
 
-$projectname = ''            # The name of the Rafay project that will be deleted. Example: devproject
-$clustername = ''            # The name of the EKS cluster that will be deleted. Example: cluster1
+$projectname = 'test'            # The name of the Rafay project that will be deleted. Example: devproject
+$clustername = 'abhi-som'            # The name of the EKS cluster that will be deleted. Example: cluster1
 
 
 #Step 2: Define users to be deleted in the Rafay Org
 
-$useremail1 = ''             # Email address of the user. Example: bob@example.com
+$useremail1 = 'anm2147@columbia.edu'             # Email address of the user. Example: bob@example.com
 $useremail2 = ''             # Email address of the user. Example: bob@example.com
 
 
