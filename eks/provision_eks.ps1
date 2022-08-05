@@ -4,8 +4,8 @@
 
 #Step 1: Populate project and cluster information
 
-$projectname = 'test'            # The name of the Rafay project that will be created. Example: devproject
-$clustername = 'abhi-som-cluster'            # The name of the EKS cluster that will be created. Example: cluster1
+$projectname = 'abhi-new-proj'            # The name of the Rafay project that will be created. Example: devproject
+$clustername = 'abhi-som-cluster2'            # The name of the EKS cluster that will be created. Example: cluster1
 $awsregion = 'us-west-2'              # The AWS region where the EKS cluster will be created.  Example: us-west-2
 
 #step 2: Create AWS policy and Role.  Define an external ID below and use the external ID during the creation of the AWS role.  Once the role is created, copy the role arn for $rolearn
