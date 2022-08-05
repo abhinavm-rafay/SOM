@@ -4,20 +4,20 @@
 
 #Step 1: Populate project and cluster information
 
-$projectname = ''            # The name of the Rafay project that will be created. Example: devproject
-$clustername = ''            # The name of the EKS cluster that will be created. Example: cluster1
-$awsregion = ''              # The AWS region where the EKS cluster will be created.  Example: us-west-2
+$projectname = 'test'            # The name of the Rafay project that will be created. Example: devproject
+$clustername = 'abhi-som-cluster'            # The name of the EKS cluster that will be created. Example: cluster1
+$awsregion = 'us-west-2'              # The AWS region where the EKS cluster will be created.  Example: us-west-2
 
 #step 2: Create AWS policy and Role.  Define an external ID below and use the external ID during the creation of the AWS role.  Once the role is created, copy the role arn for $rolearn
 
-$externalid = ''             # The external ID used to create the AWS Role. Example: 2cae-59f0-1ee2-a4ca-f977                      
-$rolearn = ''                # The AWS Role ARN of the role created with the needed Rafay permissions. Example: arn:aws:iam::679196758877:role/tim-cc-test     
+$externalid = 'abhi-test'             # The external ID used to create the AWS Role. Example: 2cae-59f0-1ee2-a4ca-f977                      
+$rolearn = 'arn:aws:iam::679196758854:role/abhi-role'                # The AWS Role ARN of the role created with the needed Rafay permissions. Example: arn:aws:iam::679196758877:role/tim-cc-test     
 
 
 #Step 3: Define users to be created in the Rafay Org
 
-$useremail1 = ''             # Email address of the user. Example: bob@example.com
-$userinfo1 = ''              # The users information in the following format: <User First Name>,<User Last Name>, <User phone number>. Example: Bob,Doe,4089382092
+$useremail1 = 'anm2147@columbia.edu'             # Email address of the user. Example: bob@example.com
+$userinfo1 = 'Abhinav,Mishra,5085230521'              # The users information in the following format: <User First Name>,<User Last Name>, <User phone number>. Example: Bob,Doe,4089382092
 
 $useremail2 = ''             # Email address of the user. Example: bob@example.com
 $userinfo2 = ''              # The users information in the following format: <User First Name>,<User Last Name>, <User phone number>. Example: Bob,Doe,4089382092
