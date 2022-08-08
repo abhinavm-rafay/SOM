@@ -1,0 +1,24 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Blueprint
+metadata:
+  name: aks-blueprint
+  project: poc
+spec:
+  base:
+    name: default-aks
+    version: 1.15.0
+  defaultAddons:
+    enableIngress: true
+    enableLogging: false
+    enableMonitoring: true
+    enableVM: false
+  drift:
+    enabled: false
+  opaPolicy:
+    enabled: true
+    name: bp-psp-restricted
+    version: v1
+  placement: {}
+  sharing:
+    enabled: false
+  version: v1
