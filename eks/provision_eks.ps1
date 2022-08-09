@@ -1,11 +1,11 @@
-﻿################################################
+################################################
 #   Populate Variables
 ################################################
 
 #Step 1: Populate project and cluster information
 
 $projectname = 'abhi-new-proj'            # The name of the Rafay project that will be created. Example: devproject
-$clustername = 'abhi-som-cluster2'            # The name of the EKS cluster that will be created. Example: cluster1
+$clustername = 'abhimishra-som'            # The name of the EKS cluster that will be created. Example: cluster1
 $awsregion = 'us-west-2'              # The AWS region where the EKS cluster will be created.  Example: us-west-2
 
 #step 2: Create AWS policy and Role.  Define an external ID below and use the external ID during the creation of the AWS role.  Once the role is created, copy the role arn for $rolearn
@@ -25,9 +25,9 @@ $userinfo2 = ''              # The users information in the following format: <U
 
 #Step 4: Populate AWS S3 bucket information for an existing S3 bucket.  This location will be used to store backups
 
-$bucketname = ''             # The name of the S3 bucket defined in AWS. Example: tim-eks-gitops
-$bucketregion = ''           # The AWS region where the bucket resides. Example: us-west-2
-$awsaccountnumber = ''       # The AWS account number the bucket is associated with. Example: 679196758877
+$bucketname = 'abhi-mishra-s3'             # The name of the S3 bucket defined in AWS. Example: tim-eks-gitops
+$bucketregion = 'us-west-2'           # The AWS region where the bucket resides. Example: us-west-2
+$awsaccountnumber = '679196758854'       # The AWS account number the bucket is associated with. Example: 679196758877
 
 
 
