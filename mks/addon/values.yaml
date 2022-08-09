@@ -1,0 +1,4 @@
+clusterName: cluster1
+serviceAccount:
+  create: false
+  name: cloudwatch-irsa
