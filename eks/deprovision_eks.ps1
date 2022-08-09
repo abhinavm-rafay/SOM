@@ -4,8 +4,8 @@
 
 #Step 1: Populate project and cluster information
 
-$projectname = 'test'            # The name of the Rafay project that will be deleted. Example: devproject
-$clustername = 'abhi-som'            # The name of the EKS cluster that will be deleted. Example: cluster1
+$projectname = 'abhi-new-proj'            # The name of the Rafay project that will be deleted. Example: devproject
+$clustername = 'abhi-som-cluster2'            # The name of the EKS cluster that will be deleted. Example: cluster1
 
 
 #Step 2: Define users to be deleted in the Rafay Org
